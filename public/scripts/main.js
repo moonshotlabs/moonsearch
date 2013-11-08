@@ -55,6 +55,10 @@ $('input:checkbox').live('change', function(){
       $(".zip").show();
       $("#zipbox").focus();
       $("#zipbox").css('border-left-width', "1px");
+
+      $.get("http://ipinfo.io", function(response) {
+          console.log(response.city, response.country);
+      }, "jsonp");
     } else {
       $(".zip").hide();
       $("#zipbox").css('border-left-width', "0px");
@@ -63,13 +67,11 @@ $('input:checkbox').live('change', function(){
 });
 
 function transitionToEmail() {
-  $('#searchbox').animo( { animation: ['bounceOutLeft'], duration: 0.8});
-  $("#checkbox-box").animo( { animation: ['bounceOutLeft'], duration: 0.8});
+  $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});
   setTimeout(function() {
-    $('#searchbox').hide();
-    $("#checkbox-box").hide()
+    $('#query-zip-section').hide();
   }, 300);
   setTimeout(function() {
-    $('#emailbox').show().animo( { animation: ['bounceInRight'], duration: 0.4} );
+    $('#email-section').show().animo( { animation: ['bounceInRight'], duration: 0.4} );
   }, 300);
 }

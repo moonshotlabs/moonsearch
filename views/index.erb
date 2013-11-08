@@ -17,58 +17,45 @@
       <div id="search-box">
         <div id="logo">Moonsearch</div>
 
+        <!-- Begin query form. Wraps all sections between transitions -->
         <form class="search-form" action="/search" method="post">
-          <div id="textfields">
-            <div id="search-zip">
+
+          <!-- Group of fields (the query and potentially zip).
+          These make up a section/card that gets animated out when
+          the user is promted for their email -->
+          <div id="query-zip-section">
+            <div id="query-zip-fields">
               <input type="text" id="searchbox" name="searchterm" autofocus/>
               <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+"/>
               <label class="zipbox-label zip" for="zipbox">Zip</label>
             </div>
-            <input type="email" placeholder="Your email address..." id="emailbox" style="display: none" name="email" autofocus/>
+
+            <div class="bottominfo-box">
+              <input type="checkbox" class="checkbox" id="nearby">
+              <label class="checkbox-label" for="nearby">Find in-stock near me ($5)</label>
+            </div>
+
           </div>
-          <div id="bottominfo-box" class="focus-border">
-            <input type="checkbox" class="checkbox" id="nearby">
-            <label class="checkbox-label" for="nearby">Find in-stock near me ($5)</label>
+
+          <div id="email-section" style="display: none">
+
+            <input type="email" placeholder="Your email address..." id="emailbox" name="email" autofocus/>
+
+            <div class="bottominfo-box message">We'll send you our top 3 recommendations in 5 minutes.</div>
+
           </div>
-          <div onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS" class="simple-button">Find it for me in 5 minutes!</div>
         </form>
+        <!-- End query form -->
+
+        <div onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS" class="simple-button">Find it for me in 5 minutes!</div>
+
       </div>
     </div>
   </div>
 
-  <script type="text/javascript">
-
-  // Google analytics
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-39773877-1']);
-    _gaq.push(['_setDomainName', 'goretro.co']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-    // Go Squared
-    var GoSquared = {acct: "GSN-662058-E"};
-    (function(w){
-      function gs(){
-        w._gstc_lt = +new Date;
-        var d = document, g = d.createElement("script");
-        g.type = "text/javascript";
-        g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
-        var s = d.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(g, s);
-      }
-      w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent("onload", gs);
-    })(window);
-  </script>
-
   <script src="../scripts/jquery.min.js"></script>
   <script src="../scripts/animo.js"></script>
   <script src="../scripts/main.js"></script>
-
 
 </body>
 </html>
