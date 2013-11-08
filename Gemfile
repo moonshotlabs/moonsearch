@@ -1,0 +1,12 @@
+source 'http://rubygems.org'
+ruby '2.0.0'
+gem 'sinatra'
+gem 'faraday'
+gem 'rack-flash3'
+gem "sinatra-contrib"
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'newrelic_rpm'
+gem 'jsonify'
+#gem 'rack-ssl'
+gem 'dm-chunked_query'

@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# parse the markdown, turn it into erb
+
+header='<div id="docs-wrap">
+  <div id="context-box">
+    <div class="page-name">Audobox Changelog</div>
+  </div>
+  <div id="docs-main">
+  ';
+rm changelog.erb
+echo $header > changelog.erb
+
+markdown changelog.md >> changelog.erb
+
+closing='</div></div>'
+echo $closing >> changelog.erb
