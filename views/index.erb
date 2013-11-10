@@ -18,21 +18,20 @@
         <div id="logo">Moonsearch</div>
 
         <!-- Begin query form. Wraps all sections between transitions -->
-        <form class="search-form" action="/search" method="post">
+        <form class="search-form" action="/query" method="post">
 
           <!-- Group of fields (the query and potentially zip).
           These make up a section/card that gets animated out when
           the user is promted for their email -->
           <div id="query-zip-section">
             <div id="query-zip-fields">
-              <input type="text" id="searchbox" name="searchterm" autofocus/>
+              <input type="text" id="searchbox" name="query" autofocus/>
               <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+"/>
               <label class="zipbox-label zip" for="zipbox">Zip</label>
             </div>
 
-            <div class="bottominfo-box">
-              <input type="checkbox" class="checkbox" id="nearby">
-              <label class="checkbox-label" for="nearby">Find in-stock near me ($5)</label>
+            <div class="bottominfo-box message">
+              Find things in meatspace.
             </div>
 
           </div>
@@ -47,7 +46,7 @@
         </form>
         <!-- End query form -->
 
-        <div onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS" class="simple-button">Find it for me in 5 minutes!</div>
+        <div id="query-button" onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS" class="simple-button">Find it nearby for me in 5 minutes!</div>
 
       </div>
     </div>

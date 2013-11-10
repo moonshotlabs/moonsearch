@@ -50,24 +50,31 @@ $("#searchbox").on('focus blur', function(){
   console.log('hi');
 })
 
-$('input:checkbox').live('change', function(){
-    if($(this).is(':checked')){
-      $(".zip").show();
-      $("#zipbox").focus();
-      $("#zipbox").css('border-left-width', "1px");
+// $('input:checkbox').live('change', function(){
+//     if($(this).is(':checked')){
+//       $(".zip").show();
+//       $("#zipbox").focus();
+//       $("#zipbox").css('border-left-width', "1px");
 
-      $.get("http://ipinfo.io", function(response) {
-          console.log(response.city, response.country);
-      }, "jsonp");
-    } else {
-      $(".zip").hide();
-      $("#zipbox").css('border-left-width', "0px");
-      //$(".zip").css('margin-right', "0px");
-    }
-});
+//       $.get("http://ipinfo.io", function(response) {
+//           console.log(response.city, response.country);
+//       }, "jsonp");
+//     } else {
+//       $(".zip").hide();
+//       $("#zipbox").css('border-left-width', "0px");
+//       //$(".zip").css('margin-right', "0px");
+//     }
+// });
+
+function submitQuery() {
+  $('.search-form').submit();
+  console.log("Form submutted");
+}
 
 function transitionToEmail() {
   $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});
+  $("#query-button").attr("onClick","submitQuery()");
+
   setTimeout(function() {
     $('#query-zip-section').hide();
   }, 300);

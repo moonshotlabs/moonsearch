@@ -64,7 +64,7 @@ body {
     #logo {
       font-family: 'Gotham-Bold';
       font-size: 32px;
-      color: #c92228;
+      color: @retrored;
     }
     .simple-button {
       position: absolute;
@@ -74,7 +74,7 @@ body {
       border-color: rgba(0,0,0,0.1);
       left: 50%;
       margin-left: -120px;
-      margin-top: 20px;
+      margin-top: 100px;
 
       padding: 10px;
       display: block;
@@ -82,7 +82,7 @@ body {
       letter-spacing: 1px;
       border-radius: 1px;
       font-family: 'Gotham-Medium';
-      width: 240px;
+      width: 260px;
       &:hover {
         cursor: pointer;
         border-color: #c6c6c6;
@@ -96,10 +96,8 @@ body {
 
       #searchbox, #emailbox, #zipbox {
         display: inline-block;
-        width: 600px;
+        width: 700px;
         margin: 0 auto;
-
-        border: 1px solid #656262;
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
         outline: none;
@@ -121,11 +119,11 @@ body {
         border-bottom-left-radius: 0px;
         border-top-left-radius: 0px;
         margin-left: -147px;
-        border-left-color: @retrogrey;
+        border-color: @retrogrey;
         border-width:0px;
+        border-left-width: 1px;
         text-indent: 15px;
         outline: 0;
-        display: none;
       }
       .zipbox-label {
         font-size: 10px;
@@ -135,7 +133,6 @@ body {
         position: absolute;
         margin-left: -135px;
         margin-top: 7px;
-        display: none;
       }
       #searchbox {
         background-image: url(http://www.levenmetwater.nl/static/global/images/icon-search.png);
@@ -152,6 +149,11 @@ body {
       }
 
       #email-section, #query-zip-section {
+        position: absolute;
+        z-index: 0px;
+        left: 50%;
+        margin-left: -350px;
+
         .message {
           color: white;
           font-family: 'Gotham-Medium';
@@ -162,7 +164,7 @@ body {
         }
         .bottominfo-box {
           margin: 0px auto;
-          width: 580px;
+          width: 680px;
           background: @retroredlight;
           border: 1px solid #ccc;
           border-top-width: 0px;
