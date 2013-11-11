@@ -64,7 +64,7 @@ body {
     #logo {
       font-family: 'Gotham-Bold';
       font-size: 32px;
-      color: @retrored;
+      color: @retroredlight;
     }
     .simple-button {
       position: absolute;
@@ -73,7 +73,7 @@ body {
       border: 2px solid #EB5858;
       border-color: rgba(0,0,0,0.1);
       left: 50%;
-      margin-left: -120px;
+      margin-left: -160px;
       margin-top: 100px;
 
       padding: 10px;
@@ -82,7 +82,7 @@ body {
       letter-spacing: 1px;
       border-radius: 1px;
       font-family: 'Gotham-Medium';
-      width: 260px;
+      width: 320px;
       &:hover {
         cursor: pointer;
         border-color: #c6c6c6;
@@ -136,9 +136,6 @@ body {
       }
       #searchbox {
         background-image: url(http://www.levenmetwater.nl/static/global/images/icon-search.png);
-        border-bottom-width: 0px;
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;
       }
       #emailbox {
         background-image: url(http://png-5.findicons.com/files/icons/2566/horizon/16/mail.png);
@@ -155,7 +152,7 @@ body {
         margin-left: -350px;
 
         .message {
-          color: white;
+          color: @retrored;
           font-family: 'Gotham-Medium';
           font-size: 12px;
           transition: all 0.2s ease-in;
@@ -165,28 +162,10 @@ body {
         .bottominfo-box {
           margin: 0px auto;
           width: 680px;
-          background: @retroredlight;
-          border: 1px solid #ccc;
-          border-top-width: 0px;
-          border-radius: 4px;
           border-top-right-radius: 0px;
           border-top-left-radius: 0px;
           padding: 0 20px;
           padding-bottom: 10px;
-
-          .checkbox {
-            display: inline-block;
-            margin-top: 13px;
-            color: #423f3d;
-            transition: all 0.2s ease-in;
-          }
-          .checkbox-label {
-            display: inline-block;
-            color: white;
-            font-family: 'Gotham-Medium';
-            font-size: 12px;
-            transition: all 0.2s ease-in;
-          }
         }
       }
     }
