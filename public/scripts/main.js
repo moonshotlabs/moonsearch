@@ -39,9 +39,9 @@ $(document).ready(function() {
 
   // Validate keyup event is alphabetic character
   // If character is valid set focus to next input box
-  $("form").delegate ("input", "keyup", function() {
-    isSpecial(($(this).val()).toLowerCase());
-  });
+  // $("form").delegate ("input", "keyup", function() {
+  //   isSpecial(($(this).val()).toLowerCase());
+  // });
 
 })
 
