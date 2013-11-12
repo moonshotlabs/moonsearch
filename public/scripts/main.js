@@ -51,6 +51,12 @@ $("#zipbox").keyup(function(event){
     }
 });
 
+$("#emailbox").keyup(function(event){
+    if(event.keyCode == 13){
+        $('#search-form').submit();
+    }
+});
+
 function submitQuery() {
   $('#search-form').submit();
   console.log("Form submitted");
