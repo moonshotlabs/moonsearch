@@ -47,35 +47,50 @@ $(document).ready(function() {
 
 $("#zipbox").keyup(function(event){
     if(event.keyCode == 13){
-        $(".simple-button").click();
+        $("#query-button").click();
     }
 });
 
-$("#searchbox").on('focus blur', function(){
-  $("#bottominfo-box").toggleClass("focus-border");
-  console.log('hi');
-})
-
-// $('input:checkbox').live('change', function(){
-//     if($(this).is(':checked')){
-//       $(".zip").show();
-//       $("#zipbox").focus();
-//       $("#zipbox").css('border-left-width', "1px");
-
-//       $.get("http://ipinfo.io", function(response) {
-//           console.log(response.city, response.country);
-//       }, "jsonp");
-//     } else {
-//       $(".zip").hide();
-//       $("#zipbox").css('border-left-width', "0px");
-//       //$(".zip").css('margin-right', "0px");
-//     }
-// });
-
 function submitQuery() {
-  $('.search-form').submit();
-  console.log("Form submutted");
+  $('#search-form').submit();
+  console.log("Form submitted");
 }
+
+$('#search-form').submit(function(e) {
+  e.preventDefault(); // Block default submit action to avoid page refresh
+
+  var postData = $(this).serializeArray();
+  var formURL = $(this).attr("action");
+
+  $.ajax(
+     {
+       url : formURL,
+       type: "POST",
+       data : postData,
+       success:function(data, textStatus, jqXHR)
+       {
+          console.log("success");
+          // hide form
+          $('#search-form').animo( { animation: ['fadeOutLeft'], duration: 0.3});
+          $('#query-button').animo( { animation: ['fadeOutLeft'], duration: 0.3});
+
+          setTimeout(function() {
+            $('#search-form').hide();
+            $('#query-button').hide();
+          }, 300);
+
+          $('#submitted-message').show().animo( { animation: ['bounceInUp'], duration: 1.0} );
+
+
+          // show confirmation to user
+       },
+       error: function(jqXHR, textStatus, errorThrown)
+       {
+          console.log(jqXHR + textStatus + errorThrown);
+       }
+     });
+
+});
 
 function transitionToEmail() {
   $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});

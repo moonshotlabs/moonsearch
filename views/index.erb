@@ -18,7 +18,7 @@
         <div id="logo">Moonsearch</div>
 
         <!-- Begin query form. Wraps all sections between transitions -->
-        <form class="search-form" action="/query" method="post">
+        <form id="search-form" action="/query" method="post">
 
           <!-- Group of fields (the query and potentially zip).
           These make up a section/card that gets animated out when
@@ -46,7 +46,9 @@
         </form>
         <!-- End query form -->
 
-        <div id="query-button" onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS" class="simple-button">Find it nearby for me in 5 minutes!</div>
+        <div id="query-button" onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it nearby for me in 5 minutes!</div>
+
+        <div id="submitted-message">Thanks! We're hunting that down right now.</div>
 
       </div>
     </div>
