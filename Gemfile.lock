@@ -94,6 +94,7 @@ DEPENDENCIES
   data_mapper
   dm-chunked_query
   dm-postgres-adapter
+  dm-types
   faraday
   jsonify
   newrelic_rpm
