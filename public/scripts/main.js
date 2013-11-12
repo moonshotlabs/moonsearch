@@ -45,6 +45,12 @@ $(document).ready(function() {
 
 })
 
+$("#zipbox").keyup(function(event){
+    if(event.keyCode == 13){
+        $(".simple-button").click();
+    }
+});
+
 $("#searchbox").on('focus blur', function(){
   $("#bottominfo-box").toggleClass("focus-border");
   console.log('hi');
