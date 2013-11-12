@@ -5,6 +5,7 @@ gem 'faraday'
 gem 'rack-flash3'
 gem "sinatra-contrib"
 gem 'data_mapper'
+gem 'dm-types'
 gem 'dm-postgres-adapter'
 gem 'newrelic_rpm'
 gem 'jsonify'

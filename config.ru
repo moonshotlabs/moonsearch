@@ -12,9 +12,8 @@ configure :production do
   #use Rack::Deflater
 end
 
-configure :development do
-
-end
-
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/moonsearch")
+DataMapper.auto_upgrade!
+DataMapper.finalize
 
 run Sinatra::Application
