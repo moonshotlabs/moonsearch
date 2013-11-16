@@ -3,6 +3,7 @@ $stdout.sync = true
 require "sinatra"
 require "faraday"
 require 'rack-flash'
+require 'stripe'
 
 require './lib/models.rb' # set up DB
 #require './lib/warden.rb' # set up auth
@@ -12,6 +13,10 @@ require './lib/helpers.rb'
 helpers Helpers
 
 set :erb, :escape_html => true
+set :publishable_key, ENV['PUBLISHABLE_KEY']
+set :secret_key, ENV['SECRET_KEY']
+Stripe.api_key = settings.secret_key
+
 
 #########################
 #                       #
@@ -33,6 +38,32 @@ end
 get '/offcourse' do
   @title = "Ye Ship Has Gone Off Course!"
   erb :offcourse, :layout => false
+end
+
+post '/charge' do
+  # Amount in cents
+  amount = 500
+  email = session[:email]
+
+  Stripe.api_key = settings.secret_key
+
+  customer = Stripe::Customer.create(
+    :email => email,
+    :card  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      => amount,
+    :description => 'Sinatra Charge',
+    :currency    => 'usd',
+    :customer    => customer.id
+  )
+
+  session[:cost] = nil
+  session[:email] = nil
+
+  "Great success!"
+
 end
 
 get '/*/freebie' do

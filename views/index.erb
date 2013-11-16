@@ -7,8 +7,17 @@
   <link rel="stylesheet" href="../styles/fonts.css" type="text/css" />
   <link rel="stylesheet" href="../styles/animate-animo.css" type="text/css" />
   <title> <%= @title %> </title>
-  <meta name="description" content="TedSearch" />
+  <meta name="description" content="Moonsearch" />
   <meta name="keywords" content="" />
+
+  <script type='text/javascript'>
+    window.onAmazonLoginReady = function() {
+      amazon.Login.setClientId('amzn1.application-oa2-client.8ee651afebde4c6c9a5fe4f07b54e41a');
+    };
+  </script>
+  <script type='text/javascript'
+    src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js?sellerId=A25GGTJJKKVQII'>
+  </script>
 
 </head>
 <body>
@@ -29,27 +38,82 @@
               <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+"/>
               <label class="zipbox-label zip" for="zipbox">Zip</label>
             </div>
-
             <div class="bottominfo-box message">
-              Find things nearby and in-stock.
+              Find things nearby and in-stock for just $5. We'll email you where to find it in 27 minutes.
             </div>
-
-          </div>
-
-          <div id="email-section" style="display: none">
-
-            <input type="email" placeholder="Your email address..." id="emailbox" name="email" autofocus/>
-
-            <div class="bottominfo-box message">We'll send you our top 3 recommendations in 5 minutes.</div>
-
           </div>
         </form>
         <!-- End query form -->
 
-        <div id="query-button" onClick="transitionToEmail();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it nearby for me in 5 minutes!</div>
+        <div id="query-button" onClick="transitionToPay();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it!</div>
 
-        <div id="submitted-message">Thanks! We're hunting that down right now.</div>
+        <div id="pay" style="display:none">
 
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+
+          <div id="beaver"></div>
+
+          <div id="pay-button" onClick="" title="Little known fact: It took beavers just 108 days to build the CN tower.">Pay</div>
+
+          <div id="submitted-message"></div>
+
+
+          <script>
+            var handler = StripeCheckout.configure({
+              key: '<%= settings.publishable_key %>',
+              token: function(token, args) {
+                console.log("Token created: " + token);
+                console.log("Args created: " + args);
+                $('#submitted-message').text("Our talented search beavers are off scouring " + pollForPlace($('#zipbox').val()) + " for you!");
+              }
+            });
+
+            document.getElementById('pay-button').addEventListener('click', function(e) {
+              // Open Checkout with further options
+              handler.open({
+                amount:      500,
+                currency:    'usd',
+                name:        'Moonsearch',
+                description: 'Finders Reward ($5.00)',
+                panelLabel:  'Pay finders fee!',
+                image:       'https://pbs.twimg.com/profile_images/378800000577421863/375fe34d654c5d6b9d2a160adbb611bd.jpeg'
+              });
+              e.preventDefault();
+            });
+          </script>
+
+
+        </div>
+
+<!--
+        <div id="AmazonPayButton"/>
+        <script type="text/javascript">
+          var authRequest;
+          OffAmazonPayments.Button("AmazonPayButton", "A25GGTJJKKVQII", {
+            type: "PwA",
+            useAmazonAddressBook: false,
+            authorization: function() {
+              loginOptions = {scope: "payments:widget"};
+              authRequest = amazon.Login.authorize(loginOptions);
+            },
+            onSignIn: function(orderReference) {
+              // The following OAuth 2 response parameters will be included in
+              // the query string when the customer's browser is redirected to
+              // the URL below: access_token, token_type, expires_in, and scope.
+              // authRequest.onComplete("/redirect_page?session=" + orderReference.getAmazonOrderReferenceId());
+
+              console.log(orderReference);
+
+
+            },
+            onError: function(error) {
+              alert("things be broken");
+
+            }
+          });
+        </script>
+
+-->
       </div>
     </div>
   </div>

@@ -98,14 +98,37 @@ $('#search-form').submit(function(e) {
 
 });
 
-function transitionToEmail() {
+function pollForPlace(zip) {
+  var requestURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip + "&sensor=false"
+  var place_name = null;
+
+  $.ajax({
+    url: requestURL,
+    async: false,
+    dataType: 'json',
+    success: function (data) {
+      try {
+        place_name = data['results'][0]['address_components'][1]['long_name'];
+      } catch(error) {
+        place_name = "";
+      }
+    }
+  });
+
+  return place_name;
+}
+
+
+function transitionToPay() {
   $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});
-  $("#query-button").attr("onClick","submitQuery()");
+  $('#query-button').animo( { animation: ['bounceOutLeft'], duration: 0.8});
+  $('#submitted-message').text("Almost there! Our savvy search beavers charge a small $5 for their efforts.");
 
   setTimeout(function() {
     $('#query-zip-section').hide();
+    $('#query-button').hide();
   }, 300);
   setTimeout(function() {
-    $('#email-section').show().animo( { animation: ['bounceInRight'], duration: 0.4} );
-  }, 300);
+    $('#pay').show().animo( { animation: ['bounceInRight'], duration: 0.8} );
+  }, 000);
 }

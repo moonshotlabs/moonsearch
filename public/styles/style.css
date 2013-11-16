@@ -249,7 +249,7 @@ body {
   background-color: #f4f5e6;
 }
 #wrap #inner-wrap {
-  background-color: #f6eac2;
+  background-color: #f6edd9;
   position: absolute;
   margin: auto;
   top: 30px;
@@ -267,40 +267,54 @@ body {
   font-size: 32px;
   color: #e47673;
 }
-#wrap #search-box #submitted-message {
-  display: none;
+#wrap #search-box #pay #submitted-message {
   position: absolute;
   left: 50%;
-  margin-left: -200px;
-  width: 400px;
+  margin-left: -350px;
+  width: 700px;
   font-size: 16px;
   font-family: 'Gotham-Bold';
   color: #423f3d;
-  margin-top: 40px;
+  margin-top: 250px;
 }
-#wrap #search-box #query-button {
+#wrap #search-box #pay #beaver {
   position: absolute;
-  background: #FDFDFD;
-  color: #e0615e;
-  border: 2px solid #EB5858;
-  border-color: rgba(0, 0, 0, 0.1);
+  background-image: url('../images/beaver.png');
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  width: 320px;
+  height: 361px;
   left: 50%;
-  margin-left: -160px;
-  margin-top: 100px;
+  margin-left: -80px;
+}
+#wrap #search-box #query-button,
+#wrap #search-box #pay-button {
+  position: absolute;
+  background: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
+  color: #e47673;
+  border: 1px solid #EB5858;
+  border-color: rgba(228, 118, 115, 0.45);
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 192px;
   padding: 10px;
   display: block;
   font-size: 12px;
   letter-spacing: 1px;
-  border-radius: 1px;
+  border-radius: 53px;
   font-family: 'Gotham-Medium';
-  width: 320px;
+  width: 200px;
 }
-#wrap #search-box #query-button:hover {
+#wrap #search-box #query-button:hover,
+#wrap #search-box #pay-button:hover {
   cursor: pointer;
-  border-color: #c6c6c6;
+  border-color: rgba(228, 118, 115, 0.65);
+  border-width: 1px;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-  background: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+}
+#wrap #search-box #query-button {
+  margin-top: 115px;
 }
 #wrap #search-box #search-form {
   margin-top: 20px;
@@ -335,7 +349,7 @@ body {
   border-color: #afa9a5;
   border-width: 0px;
   border-left-width: 1px;
-  text-indent: 15px;
+  text-indent: 20px;
   outline: 0;
 }
 #wrap #search-box #search-form .zipbox-label {
@@ -379,7 +393,7 @@ body {
   width: 680px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
-  padding: 0 20px;
+  padding: 5px 20px;
   padding-bottom: 10px;
 }
 /* #################
