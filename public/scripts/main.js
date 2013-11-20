@@ -29,7 +29,8 @@ $(document).ready(function() {
     "Chopped wood",
     "Earbuds for running under $50",
     "Power Cable for my 2012 Macbook Air",
-    "Hockey stick under $30"
+    "Hockey stick under $30",
+    "Oi Ocha Green Tea"
   ];
 
   var pickerTerm = exampleTerms[Math.floor(Math.random() * exampleTerms.length)];
