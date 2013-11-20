@@ -61,10 +61,20 @@
           <script>
             var handler = StripeCheckout.configure({
               key: '<%= settings.publishable_key %>',
-              token: function(token, args) {
-                console.log("Token created: " + token);
-                console.log("Args created: " + args);
+              token: function(response, args) {
+                console.log(response);
+                console.log(response['id']);
                 $('#submitted-message').text("Our talented search beavers are off scouring " + pollForPlace($('#zipbox').val()) + " for you!");
+
+                var form$ = $("#search-form");
+                // token contains id, last4, and card type
+                var token = response['id'];
+                var email = response['email'];
+                // insert the token into the form so it gets submitted to the server
+                form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                form$.append("<input type='hidden' name='stripeEmail' value='" + email + "'/>");
+                // and submit
+                submitQuery(form$);
               }
             });
 
@@ -84,36 +94,6 @@
 
 
         </div>
-
-<!--
-        <div id="AmazonPayButton"/>
-        <script type="text/javascript">
-          var authRequest;
-          OffAmazonPayments.Button("AmazonPayButton", "A25GGTJJKKVQII", {
-            type: "PwA",
-            useAmazonAddressBook: false,
-            authorization: function() {
-              loginOptions = {scope: "payments:widget"};
-              authRequest = amazon.Login.authorize(loginOptions);
-            },
-            onSignIn: function(orderReference) {
-              // The following OAuth 2 response parameters will be included in
-              // the query string when the customer's browser is redirected to
-              // the URL below: access_token, token_type, expires_in, and scope.
-              // authRequest.onComplete("/redirect_page?session=" + orderReference.getAmazonOrderReferenceId());
-
-              console.log(orderReference);
-
-
-            },
-            onError: function(error) {
-              alert("things be broken");
-
-            }
-          });
-        </script>
-
--->
       </div>
     </div>
   </div>

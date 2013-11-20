@@ -30,9 +30,33 @@ get "/" do
 end
 
 post "/query/?" do
-  puts params
-  query_received_email(params["query"], params["zip"], params["email"])
+
+  query = params["query"]
+  zip = params["zip"]
+  email = params["stripeEmail"]
+
+  query_received_email(query , zip, email)
   # generate_freebie(params["sender"], params["invitee"])
+
+  Stripe.api_key = settings.secret_key
+  token = params[:stripeToken]
+
+  # Create the charge on Stripe's servers - this will charge the user's card
+  begin
+    charge = Stripe::Charge.create(
+      :amount => 500, # amount in cents, again
+      :currency => "usd",
+      :card => token,
+      :description => "They bought: " + query
+    )
+    customer = Stripe::Customer.create(
+      :email => email,
+      :card  => token
+    )
+  rescue Stripe::CardError => e
+    puts "There has been an error with accepting this card."
+  end
+
 end
 
 get '/offcourse' do
@@ -87,7 +111,7 @@ def query_received_email(query, zip, submitter_email)
     faraday.adapter  Faraday.default_adapter
   end
 
-  conn.basic_auth('api', 'key-8q69y-ssazgujpbohiedzm4s3oyoz911')
+  conn.basic_auth('api', 'key-1d9ehyy1786i-bbown9surlpjv7tkd86')
 
   fields = {
     :from => 'Moonsearch Bot <hi@moonshothq.com>',
@@ -95,8 +119,9 @@ def query_received_email(query, zip, submitter_email)
     :subject => 'New Moonsearch Request!',
     :html => erb(:query_received, :layout => false , :locals => {:query => query, :zip => zip, :submitter_email => submitter_email})
   }
-  puts fields
-  conn.post('audobox.com/messages', fields)
+
+  conn.post('sandbox438.mailgun.org/messages', fields)
+
 end
 
 ## freebie logic

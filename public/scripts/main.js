@@ -51,22 +51,10 @@ $("#zipbox").keyup(function(event){
     }
 });
 
-$("#emailbox").keyup(function(event){
-    if(event.keyCode == 13){
-        $('#search-form').submit();
-    }
-});
+function submitQuery(form$) {
 
-function submitQuery() {
-  $('#search-form').submit();
-  console.log("Form submitted");
-}
-
-$('#search-form').submit(function(e) {
-  e.preventDefault(); // Block default submit action to avoid page refresh
-
-  var postData = $(this).serializeArray();
-  var formURL = $(this).attr("action");
+  var postData = form$.serializeArray();
+  var formURL = form$.attr("action");
 
   $.ajax(
      {
@@ -95,8 +83,7 @@ $('#search-form').submit(function(e) {
           console.log(jqXHR + textStatus + errorThrown);
        }
      });
-
-});
+};
 
 function pollForPlace(zip) {
   var requestURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip + "&sensor=false"
