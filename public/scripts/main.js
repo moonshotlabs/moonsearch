@@ -107,7 +107,7 @@ function pollForPlace(zip) {
 }
 
 
-function transitionToPay() {
+function transitionToConfirm() {
   $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});
   $('#query-button').animo( { animation: ['bounceOutLeft'], duration: 0.8});
   $('#submitted-message').text("Almost there! Our savvy search beavers charge a small $5 for their efforts.");
@@ -117,6 +117,6 @@ function transitionToPay() {
     $('#query-button').hide();
   }, 300);
   setTimeout(function() {
-    $('#pay').show().animo( { animation: ['bounceInRight'], duration: 0.8} );
+    $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.8} );
   }, 000);
 }

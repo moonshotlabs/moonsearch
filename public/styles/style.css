@@ -267,7 +267,7 @@ body {
   font-size: 32px;
   color: #e47673;
 }
-#wrap #search-box #pay #submitted-message {
+#wrap #search-box #confirm-screen #submitted-message {
   position: absolute;
   left: 50%;
   margin-left: -350px;
@@ -276,16 +276,6 @@ body {
   font-family: 'Gotham-Bold';
   color: #423f3d;
   margin-top: 250px;
-}
-#wrap #search-box #pay #beaver {
-  position: absolute;
-  background-image: url('../images/beaver.png');
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  width: 320px;
-  height: 361px;
-  left: 50%;
-  margin-left: -80px;
 }
 #wrap #search-box #query-button,
 #wrap #search-box #pay-button {
