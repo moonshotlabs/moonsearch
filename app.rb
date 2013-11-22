@@ -47,7 +47,7 @@ post "/query/?" do
       :amount => 500, # amount in cents, again
       :currency => "usd",
       :card => token,
-      :description => "They bought: " + query
+      :description => "They queried for: " + query
     )
     customer = Stripe::Customer.create(
       :email => email,
@@ -114,7 +114,7 @@ def query_received_email(query, zip, submitter_email)
   conn.basic_auth('api', 'key-1d9ehyy1786i-bbown9surlpjv7tkd86')
 
   fields = {
-    :from => 'Moonsearch Bot <hi@moonshothq.com>',
+    :from => "ted@audobox.com",
     :to => "ted@tedlee.me",
     :subject => 'New Moonsearch Request!',
     :html => erb(:query_received, :layout => false , :locals => {:query => query, :zip => zip, :submitter_email => submitter_email})
