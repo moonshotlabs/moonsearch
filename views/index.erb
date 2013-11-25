@@ -18,81 +18,77 @@
 </head>
 <body>
   <div id="wrap">
-    <div id="inner-wrap">
-      <div id="search-box">
-        <div id="logo">Moonsearch</div>
+    <div id="search-screen" class="absolute-center">
+      <div id="logo">Moonsearch</div>
 
-        <!-- Begin query form. Wraps all sections between transitions -->
-        <form id="search-form" action="/query" method="post">
+      <!-- Begin query form. Wraps all sections between transitions -->
+      <form id="search-form" action="/query" method="post">
 
-          <!-- Group of fields (the query and potentially zip).
-          These make up a section/card that gets animated out when
-          the user is promted for their email -->
-          <div id="query-zip-section">
-            <div id="query-zip-fields">
-              <input type="text" id="searchbox" name="query" autofocus/>
-              <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+"/>
-              <label class="zipbox-label zip" for="zipbox">Zip</label>
-            </div>
-            <div class="bottominfo-box message">
-              Find things nearby and in-stock for just $5. We'll email you where to find it in 27 minutes.
-            </div>
+        <!-- Group of fields (the query and potentially zip).
+        These make up a section/card that gets animated out when
+        the user is promted for their email -->
+        <div id="query-zip-section">
+          <div id="query-zip-fields">
+            <input type="text" id="searchbox" name="query" autofocus/>
+            <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+"/>
+            <label class="zipbox-label zip" for="zipbox">Zip</label>
           </div>
-        </form>
-        <!-- End query form -->
-
-        <div id="query-button" onClick="transitionToConfirm();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it!</div>
-
-        <div id="confirm-screen" style="display:none">
-
-          <script src="https://checkout.stripe.com/checkout.js"></script>
-
-          <div id="pay-button" onClick="" title="Little known fact: It took beavers just 108 days to build the CN tower.">Pay</div>
-
-          <div id="submitted-message"></div>
-
-
-          <script>
-            var handler = StripeCheckout.configure({
-              key: '<%= settings.publishable_key %>',
-              token: function(response, args) {
-                console.log(response);
-                console.log(response['id']);
-                $('#submitted-message').text("Our talented search beavers are off scouring " + pollForPlace($('#zipbox').val()) + " for you!");
-
-                var form$ = $("#search-form");
-                // token contains id, last4, and card type
-                var token = response['id'];
-                var email = response['email'];
-                // insert the token into the form so it gets submitted to the server
-                form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-                form$.append("<input type='hidden' name='stripeEmail' value='" + email + "'/>");
-                // and submit
-                submitQuery(form$);
-              }
-            });
-
-            document.getElementById('pay-button').addEventListener('click', function(e) {
-              // Open Checkout with further options
-              handler.open({
-                amount:      500,
-                currency:    'usd',
-                name:        'Moonsearch',
-                description: 'Finders Reward ($5.00)',
-                panelLabel:  'Pay finders fee!',
-                image:       'https://pbs.twimg.com/profile_images/378800000577421863/375fe34d654c5d6b9d2a160adbb611bd.jpeg'
-              });
-              e.preventDefault();
-            });
-          </script>
-
-
+          <div class="bottominfo-box message">
+            Find things nearby and in-stock for just $5. We'll email you where to find it in 27 minutes.
+          </div>
         </div>
-      </div>
+      </form>
+      <!-- End query form -->
+
+      <div id="query-button" class="fancy-button" onClick="transitionToConfirm();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it!</div>
+    </div>
+
+    <div id="confirm-screen" class="absolute-center" style="display:none">
+
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <div id="pay-button" class="fancy-button" onClick="" title="Little known fact: It took beavers just 108 days to build the CN tower.">Pay</div>
+
+      <div id="submitted-message"></div>
+
+
+      <script>
+        var handler = StripeCheckout.configure({
+          key: '<%= settings.publishable_key %>',
+          token: function(response, args) {
+            console.log(response);
+            console.log(response['id']);
+            $('#submitted-message').text("Our talented search beavers are off scouring " + pollForPlace($('#zipbox').val()) + " for you!");
+
+            var form$ = $("#search-form");
+            // token contains id, last4, and card type
+            var token = response['id'];
+            var email = response['email'];
+            // insert the token into the form so it gets submitted to the server
+            form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            form$.append("<input type='hidden' name='stripeEmail' value='" + email + "'/>");
+            // and submit
+            submitQuery(form$);
+          }
+        });
+
+        document.getElementById('pay-button').addEventListener('click', function(e) {
+          // Open Checkout with further options
+          handler.open({
+            amount:      500,
+            currency:    'usd',
+            name:        'Moonsearch',
+            description: 'Finders Reward ($5.00)',
+            panelLabel:  'Pay finders fee!',
+            image:       'https://pbs.twimg.com/profile_images/378800000577421863/375fe34d654c5d6b9d2a160adbb611bd.jpeg'
+          });
+          e.preventDefault();
+        });
+      </script>
     </div>
   </div>
 
-  <script src="../scripts/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="../scripts/animo.js"></script>
   <script src="../scripts/main.js"></script>
 

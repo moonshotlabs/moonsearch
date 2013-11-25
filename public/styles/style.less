@@ -46,62 +46,57 @@ body {
   font-family: 'Gotham-Boook';
 }
 
-#wrap {
-  background-color: #f4f5e6;
-  #inner-wrap {
-    background-color: @retrogold;
-    position: absolute;
-    margin: auto;
-    top: 30px;
-    left: 40px;
-    right: 40px;
-    bottom: 30px;
+/**************
+Cross site syles
+***************/
+
+.fancy-button{
+  position: absolute;
+  background: -webkit-linear-gradient(top,white,#F8F8F8);
+  color: @retroredlight;
+  border: 1px solid #EB5858;
+  border-color: rgba(228,118,115,0.45);
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 192px;
+
+  padding: 10px;
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-radius: 53px;
+  font-family: 'Gotham-Medium';
+  width: 200px;
+  &:hover {
+    cursor: pointer;
+    border-color: rgba(228,118,115,0.65);
+    border-width: 1px;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
   }
-  #search-box {
+}
+
+.absolute-center {
+  width: 60%;
+  height: 50% !important;
+  overflow: auto;
+  margin: auto;
+  position: absolute  !important;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#wrap {
+  background-color: @retrogold;
+  text-align: center;
+
+  #search-screen {
     text-align: center;
     position: relative;
-    margin-top: 15%;
+    height: 100%;
     #logo {
       font-family: 'Gotham-Bold';
       font-size: 32px;
       color: @retroredlight;
-    }
-    #confirm-screen {
-      #submitted-message {
-        position: absolute;
-        left: 50%;
-        margin-left:  -350px;
-        width: 700px;
-        font-size: 16px;
-        font-family: 'Gotham-Bold';
-        color: @retroblack;
-        margin-top: 250px;
-      }
-    }
-    #query-button, #pay-button {
-      position: absolute;
-      background: -webkit-linear-gradient(top,white,#F8F8F8);
-      color: @retroredlight;
-      border: 1px solid #EB5858;
-      border-color: rgba(228,118,115,0.45);
-      left: 50%;
-      margin-left: -100px;
-      margin-top: 192px;
-
-      padding: 10px;
-      display: block;
-      font-size: 12px;
-      letter-spacing: 1px;
-      border-radius: 53px;
-      font-family: 'Gotham-Medium';
-      width: 200px;
-      &:hover {
-        cursor: pointer;
-        border-color: rgba(228,118,115,0.65);
-        border-width: 1px;
-        -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
-        box-shadow: 0 1px 0 rgba(0,0,0,.15);
-      }
     }
     #query-button {
       margin-top: 115px;
@@ -186,7 +181,22 @@ body {
     }
 
   }
+  #confirm-screen {
+    width: 800px;
+    height: 450px;
+    background: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
 
+    #submitted-message {
+      position: absolute;
+      left: 50%;
+      margin-left:  -350px;
+      width: 700px;
+      font-size: 16px;
+      font-family: 'Gotham-Bold';
+      color: @retroblack;
+      margin-top: 250px;
+    }
+  }
 }
 
 /* #################

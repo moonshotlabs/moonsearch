@@ -245,40 +245,10 @@ body {
   background-color: white;
   font-family: 'Gotham-Boook';
 }
-#wrap {
-  background-color: #f4f5e6;
-}
-#wrap #inner-wrap {
-  background-color: #f6edd9;
-  position: absolute;
-  margin: auto;
-  top: 30px;
-  left: 40px;
-  right: 40px;
-  bottom: 30px;
-}
-#wrap #search-box {
-  text-align: center;
-  position: relative;
-  margin-top: 15%;
-}
-#wrap #search-box #logo {
-  font-family: 'Gotham-Bold';
-  font-size: 32px;
-  color: #e47673;
-}
-#wrap #search-box #confirm-screen #submitted-message {
-  position: absolute;
-  left: 50%;
-  margin-left: -350px;
-  width: 700px;
-  font-size: 16px;
-  font-family: 'Gotham-Bold';
-  color: #423f3d;
-  margin-top: 250px;
-}
-#wrap #search-box #query-button,
-#wrap #search-box #pay-button {
+/**************
+Cross site syles
+***************/
+.fancy-button {
   position: absolute;
   background: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
   color: #e47673;
@@ -295,23 +265,47 @@ body {
   font-family: 'Gotham-Medium';
   width: 200px;
 }
-#wrap #search-box #query-button:hover,
-#wrap #search-box #pay-button:hover {
+.fancy-button:hover {
   cursor: pointer;
   border-color: rgba(228, 118, 115, 0.65);
   border-width: 1px;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
-#wrap #search-box #query-button {
+.absolute-center {
+  width: 60%;
+  height: 50% !important;
+  overflow: auto;
+  margin: auto;
+  position: absolute  !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#wrap {
+  background-color: #f6edd9;
+  text-align: center;
+}
+#wrap #search-screen {
+  text-align: center;
+  position: relative;
+  height: 100%;
+}
+#wrap #search-screen #logo {
+  font-family: 'Gotham-Bold';
+  font-size: 32px;
+  color: #e47673;
+}
+#wrap #search-screen #query-button {
   margin-top: 115px;
 }
-#wrap #search-box #search-form {
+#wrap #search-screen #search-form {
   margin-top: 20px;
 }
-#wrap #search-box #search-form #searchbox,
-#wrap #search-box #search-form #emailbox,
-#wrap #search-box #search-form #zipbox {
+#wrap #search-screen #search-form #searchbox,
+#wrap #search-screen #search-form #emailbox,
+#wrap #search-screen #search-form #zipbox {
   display: inline-block;
   width: 700px;
   margin: 0 auto;
@@ -331,7 +325,7 @@ body {
   border: 1px solid #ccc;
   text-indent: 30px;
 }
-#wrap #search-box #search-form #zipbox {
+#wrap #search-screen #search-form #zipbox {
   width: 120px;
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
@@ -342,7 +336,7 @@ body {
   text-indent: 20px;
   outline: 0;
 }
-#wrap #search-box #search-form .zipbox-label {
+#wrap #search-screen #search-form .zipbox-label {
   font-size: 10px;
   text-transform: uppercase;
   color: #afa9a5;
@@ -351,25 +345,25 @@ body {
   margin-left: -135px;
   margin-top: 7px;
 }
-#wrap #search-box #search-form #searchbox {
+#wrap #search-screen #search-form #searchbox {
   background-image: url(http://www.levenmetwater.nl/static/global/images/icon-search.png);
 }
-#wrap #search-box #search-form #emailbox {
+#wrap #search-screen #search-form #emailbox {
   background-image: url(http://png-5.findicons.com/files/icons/2566/horizon/16/mail.png);
 }
-#wrap #search-box #search-form .focus-border {
+#wrap #search-screen #search-form .focus-border {
   border: 1px solid #656262 !important;
   border-top: 1px solid #c92228 !important;
 }
-#wrap #search-box #search-form #email-section,
-#wrap #search-box #search-form #query-zip-section {
+#wrap #search-screen #search-form #email-section,
+#wrap #search-screen #search-form #query-zip-section {
   position: absolute;
   z-index: 0px;
   left: 50%;
   margin-left: -350px;
 }
-#wrap #search-box #search-form #email-section .message,
-#wrap #search-box #search-form #query-zip-section .message {
+#wrap #search-screen #search-form #email-section .message,
+#wrap #search-screen #search-form #query-zip-section .message {
   color: #e0615e;
   font-family: 'Gotham-Medium';
   font-size: 12px;
@@ -377,14 +371,29 @@ body {
   height: 25px;
   line-height: 33px;
 }
-#wrap #search-box #search-form #email-section .bottominfo-box,
-#wrap #search-box #search-form #query-zip-section .bottominfo-box {
+#wrap #search-screen #search-form #email-section .bottominfo-box,
+#wrap #search-screen #search-form #query-zip-section .bottominfo-box {
   margin: 0px auto;
   width: 680px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   padding: 5px 20px;
   padding-bottom: 10px;
+}
+#wrap #confirm-screen {
+  width: 800px;
+  height: 450px;
+  background: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
+}
+#wrap #confirm-screen #submitted-message {
+  position: absolute;
+  left: 50%;
+  margin-left: -350px;
+  width: 700px;
+  font-size: 16px;
+  font-family: 'Gotham-Bold';
+  color: #423f3d;
+  margin-top: 250px;
 }
 /* #################
 ####################
