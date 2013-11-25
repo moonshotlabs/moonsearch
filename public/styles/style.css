@@ -384,6 +384,9 @@ Cross site syles
   width: 800px;
   height: 450px;
   background: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
+  border: 1px solid #EB5858;
+  border-color: rgba(228, 118, 115, 0.45);
+  border-radius: 4px;
 }
 #wrap #confirm-screen #submitted-message {
   position: absolute;
