@@ -108,17 +108,12 @@ function pollForPlace(zip) {
 
 
 function transitionToConfirm() {
-  $('#query-zip-section').animo( { animation: ['bounceOutLeft'], duration: 0.8});
-  $('#logo').animo( { animation: ['bounceOutLeft'], duration: 0.8});
-  $('#query-button').animo( { animation: ['bounceOutLeft'], duration: 0.8});
-  $('#submitted-message').text("Almost there! Our savvy search beavers charge a small $5 for their efforts.");
+  $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
 
   setTimeout(function() {
-    $('#query-zip-section').hide();
-    $('#logo').hide();
-    $('#query-button').hide();
+    $('#seach-screen').hide();
   }, 300);
   setTimeout(function() {
-    $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.8} );
+    $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
   }, 000);
 }
