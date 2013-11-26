@@ -111,7 +111,7 @@ function transitionToConfirm() {
   $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
 
   setTimeout(function() {
-    $('#seach-screen').hide();
+    $('#search-screen').hide();
   }, 300);
   setTimeout(function() {
     $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
