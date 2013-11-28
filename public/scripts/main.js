@@ -86,7 +86,7 @@ function submitQuery(form$) {
      });
 };
 
-function pollForPlace(zip) {
+function pollForPlaceFromZip(zip) {
   var requestURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip + "&sensor=false"
   var place_name = null;
 
@@ -108,12 +108,33 @@ function pollForPlace(zip) {
 
 
 function transitionToConfirm() {
-  $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
+  var query = $('#searchbox').val();
+  var zip = $('#zipbox').val();
 
-  setTimeout(function() {
-    $('#search-screen').hide();
-  }, 300);
-  setTimeout(function() {
-    $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
-  }, 000);
+  if (zip != "" && query != "") {
+    $('#confirm-map').css('background-image', 'url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=494x450&sensor=false&visual_refresh=true&jpg=true&scale=2&center=' + zip  +')');
+    $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
+
+    setTimeout(function() {
+      $('#search-screen').hide();
+    }, 300);
+    setTimeout(function() {
+      $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
+    }, 000);
+
+  } else {
+    // User forgot a field
+    $('#search-screen').animo( { animation: ['wobble'], duration: 0.6});
+    if (zip == "" && query == "") {
+      $('#query-message').text("Oh dear me! Looks like you forgot to enter an item and your zip code.")
+      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
+    }else if (query == "" ) {
+      $('#query-message').text("Whoops. Looks like you forgot to enter an item.")
+      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
+    }else if (zip == "") {
+      $('#query-message').text("Whoops. Looks like you forgot to enter your zip code.")
+      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
+    }
+
+  }
 }
