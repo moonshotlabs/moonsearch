@@ -405,7 +405,6 @@ Cross site syles
 #wrap #confirm-screen #confirm-map {
   width: 494px;
   height: 100%;
-  background-color: green;
   display: inline-block;
   margin-left: -5px;
   background-image: url('https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=494x450&sensor=false&visual_refresh=true&jpg=true&scale=2&center=37.790092,-122.404028');
@@ -473,7 +472,7 @@ a#target {
   height: 30px;
   display: block;
   position: absolute;
-  margin-top: 250px;
+  margin-top: 175px;
   margin-left: 220px;
 }
 a#target #pulse {
