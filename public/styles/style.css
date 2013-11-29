@@ -463,6 +463,15 @@ Cross site syles
   background-color: #e47673;
   border-top: 1px #e0615e solid;
 }
+#wrap #confirm-screen #confirm-details #confirm-details-location span {
+  font-family: 'Sosa-Regular';
+  text-transform: none;
+  color: #F0F3FF;
+  font-size: 13px;
+  line-height: 25px;
+  padding-left: 20px;
+  float: left;
+}
 #wrap #confirm-screen #confirm-details #confirm-details-location h3 {
   text-transform: uppercase;
   color: white;
@@ -471,15 +480,6 @@ Cross site syles
   text-align: right;
   position: absolute;
   line-height: 25px;
-}
-#wrap #confirm-screen #confirm-details #confirm-details-location h3 span {
-  font-family: 'Sosa-Regular';
-  text-transform: none;
-  color: #F0F3FF;
-  font-size: 13px;
-  line-height: 25px;
-  padding-left: 20px;
-  float: left;
 }
 #wrap #confirm-screen #confirm-map {
   width: 494px;

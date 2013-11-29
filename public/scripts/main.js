@@ -108,9 +108,11 @@ function pollForPlaceFromZip(zip) {
 function transitionToConfirm() {
   var query = $('#searchbox').val();
   var zip = $('#zipbox').val();
+  placeName = pollForPlaceFromZip(zip);
 
   if (zip != "" && query != "") {
     $('#confirm-details-message p').text("We’re hard at work scouring for: " + query + ". We'll send you an email very soon!");
+    $('#confirm-details-location h3').text(placeName);
     $('#confirm-map').css('background-image', 'url(https://maps.googleapis.com/maps/api/staticmap?zoom=11&size=494x450&sensor=false&visual_refresh=true&jpg=true&scale=2&center=' + zip  +')');
     $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
 
