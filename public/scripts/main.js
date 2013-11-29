@@ -109,8 +109,8 @@ function transitionToConfirm() {
   var query = $('#searchbox').val();
   var zip = $('#zipbox').val();
 
-  if (zip != "" && query != "") {
-    $('#confirm-map').css('background-image', 'url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=494x450&sensor=false&visual_refresh=true&jpg=true&scale=2&center=' + zip  +')');
+  if (zip == "" || query == "") {
+    $('#confirm-map').css('background-image', 'url(https://maps.googleapis.com/maps/api/staticmap?zoom=11&size=494x450&sensor=false&visual_refresh=true&jpg=true&scale=2&center=' + zip  +')');
     $('#search-screen').animo( { animation: ['bounceOutLeft'], duration: 0.6});
 
     setTimeout(function() {
@@ -118,21 +118,22 @@ function transitionToConfirm() {
     }, 300);
     setTimeout(function() {
       $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
-    }, 000);
+    }, 300);
 
   } else {
     // User forgot a field
     $('#search-screen').animo( { animation: ['wobble'], duration: 0.6});
-    if (zip == "" && query == "") {
-      $('#query-message').text("Oh dear me! Looks like you forgot to enter an item and your zip code.")
-      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
-    }else if (query == "" ) {
-      $('#query-message').text("Whoops. Looks like you forgot to enter an item.")
-      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
-    }else if (zip == "") {
-      $('#query-message').text("Whoops. Looks like you forgot to enter your zip code.")
-      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
-    }
-
+    setTimeout(function() {
+      if (zip == "" && query == "") {
+        $('#query-message').text("Oh dear me! Looks like you forgot to enter an item and your zip code.")
+        $('#query-message').show().animo( { animation: ['bounceInUp'], duration: 0.6} );
+      }else if (query == "" ) {
+        $('#query-message').text("Whoops. Looks like you forgot to enter an item.")
+        $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
+      }else if (zip == "") {
+        $('#query-message').text("Whoops. Looks like you forgot to enter your zip code.")
+        $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
+      }
+    }, 0);
   }
 }

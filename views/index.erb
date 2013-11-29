@@ -30,7 +30,7 @@
         <div id="query-zip-section">
           <div id="query-zip-fields">
             <input type="text" id="searchbox" name="query" autofocus/>
-            <input type="text" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+" autocomplete="off"/>
+            <input type="text" value="94043" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+" autocomplete="off"/>
             <label class="zipbox-label zip" for="zipbox">Zip</label>
           </div>
           <div class="bottominfo-box message">
@@ -45,7 +45,11 @@
     </div>
 
     <div id="confirm-screen" class="absolute-center" style="display:none">
-      <div id="confirm-details"></div>
+      <div id="confirm-details">
+        <div id="confirm-details-countdown"></div>
+        <div id="confirm-details-message"></div>
+        <div id="confirm-details-location"></div>
+      </div>
       <div id="confirm-map">
 
       </div>
