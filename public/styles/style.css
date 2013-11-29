@@ -414,21 +414,72 @@ Cross site syles
 }
 #wrap #confirm-screen #confirm-details #confirm-details-countdown {
   height: 130px;
-  width: 100%;
+  width: auto;
   background-image: url(http://audobox.com/images/pricing-stylized-marks.png);
   background-position: left center;
   background-size: 13px 32px;
   background-repeat: no-repeat;
+  display: block;
+  text-align: right;
+}
+#wrap #confirm-screen #confirm-details #confirm-details-countdown h1 {
+  font-size: 76px;
+  color: #423f3d;
+  font-family: 'Gotham-Bold';
+  position: absolute;
+  top: 20px;
+  text-align: right;
+  width: 280px;
+}
+#wrap #confirm-screen #confirm-details #confirm-details-countdown h4 {
+  font-size: 14px;
+  color: #423f3d;
+  font-family: 'Gotham-Boook';
+  position: absolute;
+  top: 99px;
+  width: 274px;
+  text-align: right;
 }
 #wrap #confirm-screen #confirm-details #confirm-details-message {
   height: 210px;
   width: 100%;
   background-color: #F0F3FF;
+  border-top: 1px #C7CEE9 solid;
+}
+#wrap #confirm-screen #confirm-details #confirm-details-message p {
+  width: 280px;
+  line-height: 1.6em;
+  position: absolute;
+  text-align: left;
+  font-size: 12px;
+  color: #423f3d;
+  font-family: 'Gotham-Medium';
+  padding-top: 20px;
+  padding-left: 20px;
 }
 #wrap #confirm-screen #confirm-details #confirm-details-location {
   height: 25px;
   width: 100%;
   background-color: #e47673;
+  border-top: 1px #e0615e solid;
+}
+#wrap #confirm-screen #confirm-details #confirm-details-location h3 {
+  text-transform: uppercase;
+  color: white;
+  font-size: 14px;
+  width: 280px;
+  text-align: right;
+  position: absolute;
+  line-height: 25px;
+}
+#wrap #confirm-screen #confirm-details #confirm-details-location h3 span {
+  font-family: 'Sosa-Regular';
+  text-transform: none;
+  color: #F0F3FF;
+  font-size: 13px;
+  line-height: 25px;
+  padding-left: 20px;
+  float: left;
 }
 #wrap #confirm-screen #confirm-map {
   width: 494px;
