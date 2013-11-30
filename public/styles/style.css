@@ -289,7 +289,7 @@ Cross site syles
 #wrap #search-screen {
   text-align: center;
   position: relative;
-  height: 220px;
+  height: 280px;
 }
 #wrap #search-screen #logo {
   font-family: 'Gotham-Bold';
@@ -298,6 +298,7 @@ Cross site syles
 }
 #wrap #search-screen #query-button {
   margin-top: 115px;
+  transition: all 0.3s ease-in-out;
 }
 #wrap #search-screen #query-message {
   position: absolute;
@@ -308,6 +309,7 @@ Cross site syles
   font-size: 12px;
   font-family: 'Gotham-Bold';
   display: none;
+  transition: all 0.3s ease-in-out;
 }
 #wrap #search-screen #search-form {
   margin-top: 20px;
@@ -359,6 +361,10 @@ Cross site syles
 }
 #wrap #search-screen #search-form #emailbox {
   background-image: url(http://png-5.findicons.com/files/icons/2566/horizon/16/mail.png);
+  display: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-width: 0px;
 }
 #wrap #search-screen #search-form .focus-border {
   border: 1px solid #656262 !important;
@@ -367,7 +373,7 @@ Cross site syles
 #wrap #search-screen #search-form #email-section,
 #wrap #search-screen #search-form #query-zip-section {
   position: absolute;
-  z-index: 0px;
+  z-index: 3;
   left: 50%;
   margin-left: -350px;
 }
@@ -376,18 +382,20 @@ Cross site syles
   color: #e0615e;
   font-family: 'Gotham-Medium';
   font-size: 12px;
-  transition: all 0.2s ease-in;
   height: 25px;
   line-height: 33px;
+  transition: all 0.3s ease-in-out;
 }
 #wrap #search-screen #search-form #email-section .bottominfo-box,
 #wrap #search-screen #search-form #query-zip-section .bottominfo-box {
-  margin: 0px auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -340px;
   width: 680px;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
   padding: 5px 20px;
   padding-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+  display: block;
 }
 #wrap #confirm-screen {
   width: 800px;

@@ -33,6 +33,8 @@
             <input type="text" value="94043" class="zip" id="zipbox" name="zip" maxlength = "6" step="1" pattern="\d+" autocomplete="off"/>
             <label class="zipbox-label zip" for="zipbox">Zip</label>
           </div>
+        <input type="email" placeholder="Your email address..." id="emailbox" name="email"/>
+          <div id="query-message"></div>
           <div class="bottominfo-box message">
             Find things nearby and in-stock. We'll email you where you can find it in just 27 minutes.
           </div>
@@ -41,7 +43,6 @@
       <!-- End query form -->
 
       <div id="query-button" class="fancy-button" onClick="transitionToConfirm();" title="ENGAGE SUPERGALACTIC SEARCH POWERS">Find it!</div>
-      <div id="query-message"></div>
     </div>
 
     <div id="confirm-screen" class="absolute-center" style="display:none">
