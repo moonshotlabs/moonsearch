@@ -50,6 +50,12 @@ $("#zipbox").keyup(function(event){
     }
 });
 
+$("#emailbox").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#query-button").click();
+    }
+});
+
 function submitQuery(form$) {
 
   var postData = form$.serializeArray();
