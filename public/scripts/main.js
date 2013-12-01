@@ -126,6 +126,7 @@ function transitionToConfirm() {
       }, 300);
       setTimeout(function() {
         $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
+        $('#confirm-map').animate({opacity: 0}, 0).css({'background-image': 'url('+mapURL+')'}).animate({opacity: 1}, 1500);
       }, 300);
     } else if ($('#emailbox:visible').length != 0) {
       $('#query-message').text("Oh dear me! Looks like you forgot to enter your email.")
