@@ -289,7 +289,7 @@ Cross site syles
 #wrap #search-screen {
   text-align: center;
   position: relative;
-  height: 280px;
+  height: 260px;
 }
 #wrap #search-screen #logo {
   font-family: 'Gotham-Bold';
@@ -304,7 +304,7 @@ Cross site syles
   position: absolute;
   text-align: center;
   width: 100%;
-  margin-top: 90px;
+  margin-top: 120px;
   color: #afa9a5;
   font-size: 12px;
   font-family: 'Gotham-Bold';

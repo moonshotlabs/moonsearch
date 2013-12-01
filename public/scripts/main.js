@@ -130,11 +130,13 @@ function transitionToConfirm() {
       }, 300);
     } else if ($('#emailbox:visible').length != 0) {
       $('#query-message').text("Oh dear me! Looks like you forgot to enter your email.")
-      $('#query-message').show().animo( { animation: ['bounceInUp'], duration: 0.6} );
+      $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
     } else {
       $('.bottominfo-box').hide();
-      $('#emailbox').show().animo( { animation: ['flipInX'], duration: 0.6} );
+      $('#emailbox').show().animo( { animation: ['flipInX'], duration: 0.6} ).focus();
+      $('#query-message').hide();
 
+      $('#query-message').css('margin-top', '73px');
       $('#searchbox').css('border-bottom-left-radius', '0px');
       $('#searchbox').css('border-bottom-right-radius', '0px');
 
@@ -147,7 +149,7 @@ function transitionToConfirm() {
     setTimeout(function() {
       if (zip == "" && query == "") {
         $('#query-message').text("Oh dear me! Looks like you forgot to enter an item and your zip code.")
-        $('#query-message').show().animo( { animation: ['bounceInUp'], duration: 0.6} );
+        $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
       }else if (query == "" ) {
         $('#query-message').text("Whoops. Looks like you forgot to enter an item.")
         $('#query-message').show().animo( { animation: ['bounceInDown'], duration: 0.6} );
