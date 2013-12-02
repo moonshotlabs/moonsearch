@@ -28,7 +28,8 @@ $(document).ready(function() {
     "Earbuds for running under $50",
     "Power Cable for my 2012 Macbook Air",
     "Hockey stick under $30",
-    "Oi Ocha Green Tea"
+    "Oi Ocha Green Tea",
+    "Siracha Sauce "
   ];
 
   var pickerTerm = exampleTerms[Math.floor(Math.random() * exampleTerms.length)];
@@ -56,10 +57,10 @@ $("#emailbox").keyup(function(event){
     }
 });
 
-function submitQuery(form$) {
+function submitQuery() {
 
-  var postData = form$.serializeArray();
-  var formURL = form$.attr("action");
+  var postData = $('#search-form').serializeArray();
+  var formURL = $('#search-form').attr("action");
 
   $.ajax(
      {
@@ -69,19 +70,6 @@ function submitQuery(form$) {
        success:function(data, textStatus, jqXHR)
        {
           console.log("success");
-          // hide form
-          $('#search-form').animo( { animation: ['fadeOutLeft'], duration: 0.3});
-          $('#query-button').animo( { animation: ['fadeOutLeft'], duration: 0.3});
-
-          setTimeout(function() {
-            $('#search-form').hide();
-            $('#query-button').hide();
-          }, 300);
-
-          $('#submitted-message').show().animo( { animation: ['bounceInUp'], duration: 1.0} );
-
-
-          // show confirmation to user
        },
        error: function(jqXHR, textStatus, errorThrown)
        {
@@ -133,6 +121,7 @@ function transitionToConfirm() {
       setTimeout(function() {
         $('#confirm-screen').show().animo( { animation: ['bounceInRight'], duration: 0.6} );
         $('#confirm-map').animate({opacity: 0}, 0).css({'background-image': 'url('+mapURL+')'}).animate({opacity: 1}, 1500);
+        submitQuery();
       }, 300);
     } else if ($('#emailbox:visible').length != 0) {
       $('#query-message').text("Oh dear me! Looks like you forgot to enter your email.")

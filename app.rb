@@ -33,29 +33,29 @@ post "/query/?" do
 
   query = params["query"]
   zip = params["zip"]
-  email = params["stripeEmail"]
+  email = params["email"]
 
   query_received_email(query , zip, email)
   # generate_freebie(params["sender"], params["invitee"])
 
-  Stripe.api_key = settings.secret_key
-  token = params[:stripeToken]
+  # Stripe.api_key = settings.secret_key
+  # token = params[:stripeToken]
 
-  # Create the charge on Stripe's servers - this will charge the user's card
-  begin
-    charge = Stripe::Charge.create(
-      :amount => 500, # amount in cents, again
-      :currency => "usd",
-      :card => token,
-      :description => "They queried for: " + query
-    )
-    customer = Stripe::Customer.create(
-      :email => email,
-      :card  => token
-    )
-  rescue Stripe::CardError => e
-    puts "There has been an error with accepting this card."
-  end
+  # # Create the charge on Stripe's servers - this will charge the user's card
+  # begin
+  #   charge = Stripe::Charge.create(
+  #     :amount => 500, # amount in cents, again
+  #     :currency => "usd",
+  #     :card => token,
+  #     :description => "They queried for: " + query
+  #   )
+  #   customer = Stripe::Customer.create(
+  #     :email => email,
+  #     :card  => token
+  #   )
+  # rescue Stripe::CardError => e
+  #   puts "There has been an error with accepting this card."
+  # end
 
 end
 
