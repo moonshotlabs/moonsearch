@@ -142,12 +142,13 @@ function transitionToConfirm() {
       $('#emailbox').show().animo( { animation: ['flipInX'], duration: 0.6} ).focus();
       $('#query-message').hide();
 
+      // Adjust query-message margin-height so that it doesn't get kicked too low
       $('#query-message').css('margin-top', '73px');
+
+      // Adjust search box to make it sit cleanly on top of email input
       $('#searchbox').css('border-bottom-left-radius', '0px');
       $('#searchbox').css('border-bottom-right-radius', '0px');
-
     }
-
 
   } else {
     // User forgot a field
