@@ -273,7 +273,7 @@ Cross site syles
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 .absolute-center {
-  width: 60%;
+  width: 960px;
   overflow: auto;
   margin: auto;
   position: absolute  !important;
